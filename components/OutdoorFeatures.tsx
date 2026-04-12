@@ -39,7 +39,7 @@ export default function OutdoorFeatures({ onEstimateClick }: OutdoorFeaturesProp
         </div>
 
         {/* Right — text */}
-        <div>
+        <div className="text-center md:text-left">
           <h2
             className="text-3xl md:text-4xl font-medium text-[#111] mb-4 leading-tight"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -55,13 +55,13 @@ export default function OutdoorFeatures({ onEstimateClick }: OutdoorFeaturesProp
 
           <ul className="space-y-5 mb-8">
             {features.map((feature) => (
-              <li key={feature.title} className="flex items-start gap-3">
+              <li key={feature.title} className="flex items-start gap-3 justify-center md:justify-start">
                 <Check
                   size={20}
                   className="text-[#253551] mt-0.5 flex-shrink-0"
                   strokeWidth={3}
                 />
-                <span className="text-gray-700">
+                <span className="text-gray-700 text-left">
                   <strong className="text-[#111]">{feature.title}</strong>
                   {" "}– {feature.description}
                 </span>
@@ -75,12 +75,14 @@ export default function OutdoorFeatures({ onEstimateClick }: OutdoorFeaturesProp
             living space.
           </p>
 
-          <button
-            onClick={onEstimateClick}
-            className="bg-[#253551] text-white font-medium px-10 py-4 rounded-lg hover:bg-[#000A63] transition-all"
-          >
-            Get Free Estimate
-          </button>
+          <div className="flex justify-center md:justify-start">
+            <button
+              onClick={onEstimateClick}
+              className="bg-[#253551] text-white font-medium px-10 py-4 rounded-lg hover:bg-[#000A63] transition-all"
+            >
+              Get Free Estimate
+            </button>
+          </div>
         </div>
       </div>
     </section>

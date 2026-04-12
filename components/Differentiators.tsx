@@ -37,7 +37,7 @@ export default function Differentiators({ onEstimateClick }: DifferentiatorsProp
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-14 items-stretch">
         {/* Left — text */}
-        <div>
+        <div className="text-center md:text-left">
           <h2
             className="text-3xl md:text-4xl font-medium text-[#111] mb-4 leading-tight"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -55,11 +55,11 @@ export default function Differentiators({ onEstimateClick }: DifferentiatorsProp
           {/* Numbered list */}
           <div className="space-y-5 mb-10">
             {points.map((point) => (
-              <div key={point.number} className="flex items-start gap-4">
+              <div key={point.number} className="flex items-start gap-4 justify-center md:justify-start">
                 <div className="w-10 h-10 bg-[#000A63] text-white rounded-full flex items-center justify-center flex-shrink-0 font-medium text-sm">
                   {point.number}
                 </div>
-                <div className="pt-1">
+                <div className="pt-1 text-left">
                   <span className="font-semibold text-[#111]">
                     {point.title}
                   </span>
@@ -71,12 +71,14 @@ export default function Differentiators({ onEstimateClick }: DifferentiatorsProp
             ))}
           </div>
 
-          <button
-            onClick={onEstimateClick}
-            className="bg-[#253551] text-white font-medium px-10 py-4 rounded-lg hover:bg-[#000A63] transition-all"
-          >
-            Get Free Estimate
-          </button>
+          <div className="flex justify-center md:justify-start">
+            <button
+              onClick={onEstimateClick}
+              className="bg-[#253551] text-white font-medium px-10 py-4 rounded-lg hover:bg-[#000A63] transition-all"
+            >
+              Get Free Estimate
+            </button>
+          </div>
         </div>
 
         {/* Right — image */}

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import TrustBadges from "@/components/TrustBadges";
 import Projects from "@/components/Projects";
 import Process from "@/components/Process";
 import ValueProp from "@/components/ValueProp";
@@ -27,14 +26,12 @@ export default function Home() {
       <Header onEstimateClick={openModal} />
       <main>
         <Hero onEstimateClick={openModal} />
-        <TrustBadges />
         <Projects />
         <Process onEstimateClick={openModal} />
         <ValueProp onEstimateClick={openModal} />
         <Differentiators onEstimateClick={openModal} />
         <OutdoorFeatures onEstimateClick={openModal} />
         <Testimonials />
-        <Process onEstimateClick={openModal} id="process-2" />
         <Guarantees onEstimateClick={openModal} />
         <FAQ />
         <CTASection onEstimateClick={openModal} />

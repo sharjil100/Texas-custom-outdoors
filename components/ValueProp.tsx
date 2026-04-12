@@ -21,7 +21,7 @@ export default function ValueProp({ onEstimateClick }: ValuePropProps) {
         </div>
 
         {/* Right — text */}
-        <div>
+        <div className="text-center md:text-left">
           <h2
             className="text-3xl md:text-4xl font-medium text-[#111] mb-6 leading-tight"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -43,13 +43,13 @@ export default function ValueProp({ onEstimateClick }: ValuePropProps) {
               "Engineered for beauty, longevity, and effortless maintenance",
               "Built with precision by a veteran-owned team that values integrity",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3">
+              <li key={item} className="flex items-start gap-3 justify-center md:justify-start">
                 <Check
                   size={20}
                   className="text-[#253551] mt-0.5 flex-shrink-0"
                   strokeWidth={3}
                 />
-                <span className="text-gray-700">{item}</span>
+                <span className="text-gray-700 text-left">{item}</span>
               </li>
             ))}
           </ul>
@@ -58,12 +58,14 @@ export default function ValueProp({ onEstimateClick }: ValuePropProps) {
             Your dream outdoor retreat starts here.
           </p>
 
-          <button
-            onClick={onEstimateClick}
-            className="bg-[#253551] text-white font-medium px-10 py-4 rounded-lg hover:bg-[#000A63] transition-all"
-          >
-            Get Free Estimate
-          </button>
+          <div className="flex justify-center md:justify-start">
+            <button
+              onClick={onEstimateClick}
+              className="bg-[#253551] text-white font-medium px-10 py-4 rounded-lg hover:bg-[#000A63] transition-all"
+            >
+              Get Free Estimate
+            </button>
+          </div>
         </div>
       </div>
     </section>

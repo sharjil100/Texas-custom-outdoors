@@ -45,22 +45,22 @@ export default function Hero({ onEstimateClick: _onEstimateClick }: HeroProps) {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-28 md:pt-32 pb-28 w-full">
         {/* Two-column layout */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-[3fr_2fr] gap-8 items-center mb-16">
 
           {/* Left — text */}
-          <div className="text-white">
+          <div className="text-white text-center md:text-left">
             <p className="text-sm font-normal tracking-wide text-white/70 mb-4">
               #1 Backyard Investment For Beauty, Relaxation &amp; Value
             </p>
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.2] mb-6"
+              className="text-4xl md:text-5xl font-medium leading-[1.15] mb-6"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               A Backyard{" "}
               <span style={{ color: "#4AB3F4" }}>Designed</span>
               {" "}For Effortless Luxury
             </h1>
-            <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8">
+            <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-8">
               Imagine stepping outside into a stunning, resort-style
               backyard—custom-designed just for you. A crystal-clear pool,
               soothing water features, and a seamless outdoor living space built
@@ -74,12 +74,12 @@ export default function Hero({ onEstimateClick: _onEstimateClick }: HeroProps) {
                 "Innovative swimming pool construction tailored to you.",
                 "Quality-driven process for lasting results.",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-200 text-lg">
+                <li key={item} className="flex items-start gap-3 text-gray-200 text-sm md:text-base justify-center md:justify-start">
                   <CheckCircle
                     size={20}
                     className="text-green-500 mt-0.5 flex-shrink-0"
                   />
-                  {item}
+                  <span className="text-left">{item}</span>
                 </li>
               ))}
             </ul>
