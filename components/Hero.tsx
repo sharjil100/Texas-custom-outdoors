@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Loader2, Handshake, ShieldCheck } from "lucide-react";
+import { CheckCircle, Loader2, Handshake } from "lucide-react";
 
 interface HeroProps {
   onEstimateClick: () => void;
@@ -43,14 +43,14 @@ export default function Hero({ onEstimateClick: _onEstimateClick }: HeroProps) {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-28 md:pt-32 pb-28 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-32 md:pt-36 pb-16 md:pb-28 w-full">
         {/* Two-column layout */}
         <div className="grid md:grid-cols-[3fr_2fr] gap-8 items-center mb-16">
 
           {/* Left — text */}
-          <div className="text-white text-center md:text-left">
+          <div className="text-white text-left">
             <p className="text-sm font-normal tracking-wide text-white/70 mb-4">
-              #1 Backyard Investment For Beauty, Relaxation &amp; Value
+              #1 Backyard Investment For Value
             </p>
             <h1
               className="text-4xl md:text-5xl font-medium leading-[1.15] mb-6"
@@ -60,37 +60,38 @@ export default function Hero({ onEstimateClick: _onEstimateClick }: HeroProps) {
               <span style={{ color: "#4AB3F4" }}>Designed</span>
               {" "}For Effortless Luxury
             </h1>
-            <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-8">
-              Imagine stepping outside into a stunning, resort-style
-              backyard—custom-designed just for you. A crystal-clear pool,
-              soothing water features, and a seamless outdoor living space built
-              with precision, durability, and luxury in mind. At Texas Custom
-              Outdoors, we bring your vision to life with:
-            </p>
-
-            <ul className="space-y-3">
-              {[
-                "Crafting custom pools with precision and care.",
-                "Innovative swimming pool construction tailored to you.",
-                "Quality-driven process for lasting results.",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-200 text-sm md:text-base justify-center md:justify-start">
-                  <CheckCircle
-                    size={20}
-                    className="text-green-500 mt-0.5 flex-shrink-0"
-                  />
-                  <span className="text-left">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="hidden md:block">
+              <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-8">
+                Imagine stepping outside into a stunning, resort-style
+                backyard—custom-designed just for you. A crystal-clear pool,
+                soothing water features, and a seamless outdoor living space built
+                with precision, durability, and luxury in mind. At Texas Custom
+                Outdoors, we bring your vision to life with:
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Crafting custom pools with precision and care.",
+                  "Innovative swimming pool construction tailored to you.",
+                  "Quality-driven process for lasting results.",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-gray-200 text-sm md:text-base justify-start">
+                    <CheckCircle
+                      size={20}
+                      className="text-green-500 mt-0.5 flex-shrink-0"
+                    />
+                    <span className="text-left">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Right — glassmorphism form card */}
-          <div className="bg-white/15 backdrop-blur-md border border-white/30 rounded-2xl shadow-2xl overflow-hidden">
+          {/* Right — form card */}
+          <div className="bg-gray-700/40 backdrop-blur-sm rounded-2xl md:bg-white/15 md:backdrop-blur-md shadow-2xl overflow-hidden">
             {/* Heading directly on glass */}
             <div className="px-6 pt-6 pb-2 text-center">
               <h2
-                className="font-medium text-2xl text-white"
+                className="font-medium text-lg md:text-2xl text-white"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 Get Your Free Estimate Now!
@@ -166,49 +167,43 @@ export default function Hero({ onEstimateClick: _onEstimateClick }: HeroProps) {
           </div>
         </div>
 
-        {/* Trust badges strip */}
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-          <div className="flex flex-col items-center text-white gap-1">
-            <span
-              className="font-medium text-3xl leading-none"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              100%
-            </span>
-            <span className="text-xs text-white/70 text-center">Satisfaction</span>
+        {/* Trust badges strip — single row on all screen sizes */}
+        <div className="flex flex-nowrap items-center justify-between gap-2 md:justify-center md:gap-20">
+          {/* 100% Satisfaction Guaranteed */}
+          <div className="flex flex-col items-center text-white text-center leading-tight min-w-0">
+            <span className="font-black text-2xl md:text-4xl tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>100%</span>
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider mt-0.5">Satisfaction</span>
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider">Guaranteed</span>
           </div>
 
-          <div className="flex flex-col items-center text-white gap-1">
-            <Handshake size={32} className="text-white" />
-            <span className="text-xs text-white/70 text-center">Family Owned</span>
+          {/* Upfront Pricing */}
+          <div className="flex flex-col items-center text-white text-center gap-0.5 min-w-0">
+            <Handshake size={28} className="md:w-[38px] md:h-[38px]" strokeWidth={1.5} />
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider leading-tight">Upfront</span>
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider leading-tight">Pricing</span>
           </div>
 
-          <div className="flex flex-col items-center text-white gap-1">
-            <ShieldCheck size={32} className="text-white" />
-            <span className="text-xs text-white/70 text-center">Lifetime Warranty</span>
+          {/* Warranty Life Time */}
+          <div className="flex flex-col items-center text-white text-center min-w-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" className="md:w-12 md:h-12" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="50" cy="50" r="44" strokeWidth="2.5"/>
+              <circle cx="50" cy="50" r="36" strokeWidth="1.5" strokeDasharray="4 2"/>
+              <text x="50" y="42" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" stroke="none" style={{fontFamily:"sans-serif",letterSpacing:"1px",textTransform:"uppercase"}}>WARRANTY</text>
+              <text x="50" y="54" textAnchor="middle" fill="white" fontSize="13" fontWeight="900" stroke="none" style={{fontFamily:"sans-serif"}}>LIFE</text>
+              <text x="50" y="66" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" stroke="none" style={{fontFamily:"sans-serif",letterSpacing:"1px"}}>TIME</text>
+            </svg>
           </div>
 
-          <div className="flex flex-col items-center text-white gap-1">
-            <span
-              className="font-medium text-3xl leading-none"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              15 Years
-            </span>
-            <span className="text-xs text-white/70 text-center">Experience</span>
+          {/* 15 Years Excellence */}
+          <div className="flex flex-col items-center text-white text-center leading-tight min-w-0">
+            <span className="font-black text-2xl md:text-4xl tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>15</span>
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider">Years</span>
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider">Excellence</span>
+            <span className="font-bold text-[10px] md:text-xs uppercase tracking-wider">Service</span>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 80L60 66.7C120 53 240 27 360 21.3C480 16 600 32 720 42.7C840 53 960 59 1080 53.3C1200 48 1320 32 1380 24L1440 16V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z"
-            fill="white"
-          />
-        </svg>
-      </div>
     </section>
   );
 }

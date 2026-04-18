@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone } from "lucide-react";
 import Image from "next/image";
 
 interface HeaderProps {
@@ -10,7 +10,6 @@ interface HeaderProps {
 
 export default function Header({ onEstimateClick }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -56,35 +55,20 @@ export default function Header({ onEstimateClick }: HeaderProps) {
           </span>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 text-white"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-black/80 backdrop-blur-md border-t border-white/10 px-4 py-4 flex flex-col gap-3">
+        {/* Mobile CTA — phone button directly visible */}
+        <div className="md:hidden flex flex-col items-end gap-1">
           <a
             href="tel:8323153255"
-            className="flex items-center justify-center gap-2 bg-[#1e3a8a] text-white font-medium text-sm px-4 py-3 rounded"
+            className="flex items-center gap-2 bg-[#1e3a8a] text-white font-semibold text-base px-5 py-2.5 rounded hover:bg-[#1e40af] transition-all"
           >
-            <Phone size={14} />
+            <Phone size={15} />
             (832) 315-3255
           </a>
-          <p className="text-white/70 text-xs text-center">Available 9AM - 6PM | Mon - Sun</p>
-          <button
-            onClick={() => { setMobileOpen(false); onEstimateClick(); }}
-            className="bg-white text-[#1e3a8a] font-medium text-sm px-5 py-3 rounded"
-          >
-            Get Free Estimate
-          </button>
+          <span className="text-white text-xs opacity-80">
+            Available 9AM - 6PM&nbsp;|&nbsp;Mon - Sun
+          </span>
         </div>
-      )}
+      </div>
     </header>
   );
 }
